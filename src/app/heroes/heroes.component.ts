@@ -28,9 +28,11 @@ export class HeroesComponent implements OnInit {
     this.heroService.deleteHero(hero).subscribe();
   }
   
-  add(name: string, points: number): void {
+  add(name: string, pi: string): void {
     name = name.trim();
-    if (!name ||!points ) { return; }
+    if (!name ||!pi ) { return; }
+
+    let points: number = Number(pi);
 
     this.heroService.addHero({ name, points } as Hero)
       .subscribe(hero => {
